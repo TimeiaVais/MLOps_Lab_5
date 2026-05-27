@@ -1,0 +1,30 @@
+stages:
+
+  download_data:
+    cmd: python src/download_data.py
+    outs:
+      - data/raw
+
+  train:
+    cmd: python src/train.py
+    deps:
+      - data/raw
+      - src/train.py
+      - src/model.py
+    params:
+      - training.epochs
+      - training.learning_rate
+      - data.batch_size
+      - data.train_chunks
+      - data.val_chunks
+    outs:
+      - artifacts/best_model.pth
+
+  evaluate:
+    cmd: python src/evaluate.py
+    deps:
+      - artifacts/best_model.pth
+      - src/evaluate.py
+      - src/model.py
+    outs:
+      - metrics/metrics.json

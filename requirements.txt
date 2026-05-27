@@ -1,0 +1,10 @@
+torch
+torchvision
+scikit-learn
+pyyaml
+dvc
+numpy
+black
+ruff
+isort
+mypy

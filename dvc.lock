@@ -1,0 +1,66 @@
+schema: '2.0'
+stages:
+  download_data:
+    cmd: python src/download_data.py
+    outs:
+    - path: data/raw
+      hash: md5
+      md5: e252d2c8ba36d1ab3e21a873ab62daa3.dir
+      size: 356712185
+      nfiles: 9
+  train:
+    cmd: python src/train.py
+    deps:
+    - path: data/raw
+      hash: md5
+      md5: e252d2c8ba36d1ab3e21a873ab62daa3.dir
+      size: 356712185
+      nfiles: 9
+    - path: src/model.py
+      hash: md5
+      md5: a90102baa61029c91fa08217e7e074fe
+      size: 822
+    - path: src/train.py
+      hash: md5
+      md5: e868ac2eb8bc401480a6103a74a936b7
+      size: 3096
+    params:
+      params.yaml:
+        data.batch_size: 64
+        data.train_chunks:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        data.val_chunks:
+        - 6
+        - 7
+        training.epochs: 5
+        training.learning_rate: 0.001
+    outs:
+    - path: artifacts/best_model.pth
+      hash: md5
+      md5: 02950abc7d64ee39b21d22a9a64526ff
+      size: 4286775
+  evaluate:
+    cmd: python src/evaluate.py
+    deps:
+    - path: artifacts/best_model.pth
+      hash: md5
+      md5: 02950abc7d64ee39b21d22a9a64526ff
+      size: 4286775
+    - path: src/evaluate.py
+      hash: md5
+      md5: 5de00793696425f11da6037618b9788d
+      size: 2065
+    - path: src/model.py
+      hash: md5
+      md5: a90102baa61029c91fa08217e7e074fe
+      size: 822
+    outs:
+    - path: metrics/metrics.json
+      hash: md5
+      md5: 5f51bb02448841aaad140acf3dc4daea
+      size: 121

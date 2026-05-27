@@ -1,0 +1,35 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+.env/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs
+logs/
+*.log
+
+# Model artifacts (DVC will track them if needed, but not via Git)
+artifacts/
+metrics/
+
+# OS files
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# DVC cache (IMPORTANT)
+.dvc/cache/
+
+# Temporary files
+*.tmp
+*.bak
