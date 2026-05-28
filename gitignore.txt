@@ -33,3 +33,5 @@ metrics/
 # Temporary files
 *.tmp
 *.bak
+
+wandb/

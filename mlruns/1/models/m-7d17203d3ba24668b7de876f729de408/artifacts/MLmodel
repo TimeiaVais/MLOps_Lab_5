@@ -1,0 +1,23 @@
+artifact_path: /Users/vaistimeia/Desktop/cifar-dvc-project/mlruns/1/models/m-7d17203d3ba24668b7de876f729de408/artifacts
+flavors:
+  python_function:
+    config:
+      device: null
+    data: data
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.pytorch
+    pickle_module_name: mlflow.pytorch.pickle_module
+    python_version: 3.11.3
+  pytorch:
+    code: null
+    model_data: data
+    pytorch_version: 2.2.2
+mlflow_version: 3.12.0
+model_id: m-7d17203d3ba24668b7de876f729de408
+model_size_bytes: 4287684
+model_uuid: m-7d17203d3ba24668b7de876f729de408
+prompts: null
+run_id: 779cf9f1b5af4a3c8a97f40af8156d58
+utc_time_created: '2026-05-27 20:18:00.784076'

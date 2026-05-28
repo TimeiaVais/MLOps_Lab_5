@@ -22,8 +22,8 @@ stages:
       size: 822
     - path: src/train.py
       hash: md5
-      md5: e868ac2eb8bc401480a6103a74a936b7
-      size: 3096
+      md5: 632d6bea51e34bf6d1df86cf5715c4f4
+      size: 4004
     params:
       params.yaml:
         data.batch_size: 64
@@ -37,13 +37,13 @@ stages:
         data.val_chunks:
         - 6
         - 7
-        training.epochs: 5
+        training.epochs: 10
         training.learning_rate: 0.001
     outs:
     - path: artifacts/best_model.pth
       hash: md5
-      md5: 02950abc7d64ee39b21d22a9a64526ff
-      size: 4286775
+      md5: 67da4ee86404f3d6281b3b69f52ad64a
+      size: 4286372
   evaluate:
     cmd: python src/evaluate.py
     deps:
