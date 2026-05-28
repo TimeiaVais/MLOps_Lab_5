@@ -35,3 +35,8 @@ metrics/
 *.bak
 
 wandb/
+data/
+artifacts/
+mlruns/
+wandb/
+*.pth

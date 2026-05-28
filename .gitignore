@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+
+# Data
+data/raw/
+data/processed/
+
+# ML artifacts
+artifacts/
+mlruns/
+wandb/
+*.pth
+
+# OS
+.DS_Store
